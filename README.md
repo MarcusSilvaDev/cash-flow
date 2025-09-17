@@ -173,6 +173,20 @@ docker compose up
 
 ---
 
+Survey and Research Insights
+
+As part of this project, a research paper titled "Event-Driven Architecture in High-Volume Microservices: A Survey on Industry Practices" was developed to validate and complement the findings of a prior systematic literature review.
+
+This survey captures real-world practices, challenges, and trends from industry professionals regarding the application of event-driven architecture in large-scale microservices environments. The insights gained provide empirical evidence supporting key architectural decisions made in this project, such as the use of event sourcing, asynchronous communication, and distributed transaction patterns.
+
+The paper serves as a bridge between academic research and practical implementation, reinforcing the relevance and effectiveness of the solution’s design choices.
+
+* [Survey Paper](./Docs/survery/Survey___Guidelines_for_the_Application_of_Event_Driven_Architecture_in_Micro_Services_with_high_volume_of_data.pdf).
+
+* [Survery Data](https://docs.google.com/spreadsheets/d/1HUr4NhjWa_TzfV4pzErjM-VvsYFCVOYYkBWC-IAdU7s/edit?pli=1&gid=1652054393#gid=1652054393)
+
+---
+
 📚 References
 
 This solution follows best practices and is grounded in research findings from:

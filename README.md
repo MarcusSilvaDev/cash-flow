@@ -86,6 +86,24 @@ For observability and monitoring, the following open-source tools are recommende
 
 ---
 
+---
+
+📋 Technology Decision Guidelines
+
+| Technology / Pattern       | When to Use                                                                                  | When to Avoid                                                                                | Integration Testing Considerations                     | Impact on Micro Frontend Creation                         |
+|---------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------|----------------------------------------------------------|
+| **Microservices**          | Independent scalability, modular maintenance, isolated deployment                           | Small, simple systems with low complexity                                                   | High complexity, requires distributed testing          | Facilitates independent frontend teams aligning with backend services                      |
+| **Multiple Databases**     | Optimization for different data types and query patterns                                    | When synchronization and maintenance complexity is prohibitive                              | Must validate consistency across different stores      | Requires careful data synchronization strategies across front and back ends               |
+| **RabbitMQ (Event-Driven)**| Asynchronous, decoupled, fault-tolerant communication                                      | Systems requiring immediate consistency and synchronous communication                       | Async testing challenges, queue simulation required    | Enables loosely coupled frontend-backend integration with event-driven updates            |
+| **Event Sourcing**         | Audit requirements, state reconstruction, complete change tracking                          | When event history overhead exceeds benefits                                                | Event replay and consistency testing require special care | Complexity in syncing frontend state with event stream; demands careful UI event modeling  |
+| **CQRS**                  | Separate command and query optimization for performance and scalability                     | Simple systems where separation adds unnecessary complexity                                 | Must test separate read/write paths                     | Allows distinct read models useful for dynamic micro frontends                            |
+| **Choreographed Saga**     | Event-driven distributed transaction coordination with maximum decoupling                  | Simple or centralized transactions where distributed complexity is unnecessary              | Complex integration tests, event-based monitoring needed| Adds complexity in coordinating frontend state transitions across distributed services     |
+| **API Gateway (Kong)**     | Authentication, authorization, unified routing in microservices architectures               | Monolithic or very simple systems                                                          | End-to-end tests depend on gateway layer                | Central point for securing and routing API calls used by micro frontends                   |
+| **Docker & Kubernetes**    | Orchestration, automated deployment, scalability in distributed environments               | Small applications where operational overhead isn't justified                               | Benefits testing but adds complexity and execution time | Enables deployment and scaling of frontend components alongside backend microservices      |
+
+---
+
+
 ## 🚀 Running the project
 
 ### Prerequisites
@@ -151,3 +169,21 @@ docker compose up
 ### Container Context
 
 ![Container Context](c4_containercontext_cahsflow.png)
+
+
+---
+
+📚 References
+
+This solution follows best practices and is grounded in research findings from:
+
+@article{silva2025guidelines,
+  title={Guidelines for the Application of Event Driven Architecture in Micro Services with High Volume of Data},
+  author={Silva, Marcus VS and dos Santos, Luiz FC and Soares, Michel S and Rocha, Fabio Gomes},
+  year={2025}
+}
+
+@article{dosmicrofront,
+  title={Microfront-End: Systematic Mapping},
+  author={dos Santos, Luiz Felipe Cirqueira and Silva, Marcus Vinicius Santana and dos Santos, Shexmo Richarlison Ribeiro and Rocha, F{\'a}bio Gomes and da Silva, Elisrenan Barbosa}
+}

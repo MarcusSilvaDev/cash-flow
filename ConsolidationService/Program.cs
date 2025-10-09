@@ -87,7 +87,7 @@ public class Program
         app.UseSwagger();
         app.UseSwaggerUI();
 
-        app.UseHttpsRedirection();
+        // app.UseHttpsRedirection();
 
         app.MapPost("/api/consolidation/daily/query",
             async (

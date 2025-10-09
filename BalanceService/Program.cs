@@ -92,7 +92,7 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
+        // app.UseHttpsRedirection();
 
         app.MapGet("/api/balance", async (Guid accountId, IQueryHandler<BalanceRequest, BalanceResponse> handler, CancellationToken cancellationToken) =>
         {

@@ -43,21 +43,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var readUpList = new[]
-{
-    "/row",
-    "/"
-};
-100
-
-I`ll open 1 connection to insert bulk with 100 items
-var writeUpList = new ImmutableList<string>
-{
-  "/row",
-  "/"
-};
-
-
 
 app.MapPost("/register", async (UserDto userDto, IMongoCollection<UserProjection> db) =>
 {
